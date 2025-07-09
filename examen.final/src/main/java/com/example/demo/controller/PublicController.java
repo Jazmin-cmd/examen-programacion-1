@@ -11,3 +11,4 @@ public class PublicController {
         return "publico"; // nombre de la vista Thymeleaf: publico.html
     }
 }
+
