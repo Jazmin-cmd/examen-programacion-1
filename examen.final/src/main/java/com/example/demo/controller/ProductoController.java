@@ -28,7 +28,7 @@ public class ProductoController {
 
     @Autowired
     private CategoriaRepository categoriaRepo;
-
+    //Esta seria una prueba para git
     @GetMapping("/productos")
     public String listarProductos(Model model) {
         List<Producto> productos = productoRepo.findAll();
