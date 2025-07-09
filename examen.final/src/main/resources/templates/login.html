@@ -7,13 +7,26 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(135deg, #00c9ff, #92fe9d); /* fondo combinado con home */
+            position: relative;
             height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
-            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body::before {
+            content: "";
+            position: fixed; /* fijo para que no se mueva al hacer scroll */
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('/foto_stock.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: blur(8px);
+            z-index: -1; /* atrás del contenido */
         }
 
         .login-box {
@@ -43,6 +56,7 @@
             font-weight: bold;
         }
     </style>
+
 </head>
 <body>
 <div class="login-box">

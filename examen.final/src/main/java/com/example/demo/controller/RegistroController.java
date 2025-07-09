@@ -1,4 +1,5 @@
 package com.example.demo.controller;
+
 import com.example.demo.model.Usuario;
 import com.example.demo.repository.UsuarioRepository;
 import jakarta.validation.Valid;
@@ -7,8 +8,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class RegistroController {
@@ -31,18 +33,18 @@ public class RegistroController {
             BindingResult bindingResult,
             Model model) {
 
-        // Validar errores de formulario
+        // Verificar si hay errores de validación
         if (bindingResult.hasErrors()) {
-            return "registro";
+            return "registro"; // vuelve a mostrar el formulario con mensajes
         }
 
-        // Validar si el username ya existe
+        // Validar que no exista otro usuario con el mismo nombre
         if (usuarioRepository.existsByUsername(usuario.getUsername())) {
             bindingResult.rejectValue("username", "error.usuario", "El nombre de usuario ya está en uso");
             return "registro";
         }
 
-        // Codificar la contraseña y guardar
+        // Encriptar la contraseña y guardar
         usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
         usuario.setRol("USER");
         usuarioRepository.save(usuario);

@@ -54,16 +54,14 @@
 <body>
 <div class="container mt-5">
 
-  <!-- Botón Volver al Inicio -->
-  <a href="/home" class="btn btn-outline-secondary btn-volver">
-    <i class="fas fa-arrow-left"></i> Volver al Inicio
-  </a>
-
   <h2>Lista de Productos</h2>
 
-  <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#nuevoProductoModal">
-    <i class="fas fa-plus"></i> Nuevo Producto
-  </button>
+  <!-- Contenedor para alinear "Nuevo Producto" a la derecha -->
+  <div class="d-flex justify-content-end mb-3">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevoProductoModal">
+      <i class="fas fa-plus"></i> Nuevo Producto
+    </button>
+  </div>
 
   <table class="table table-striped table-hover">
     <thead>
@@ -89,7 +87,16 @@
     </tr>
     </tbody>
   </table>
+
+  <!-- Botón Volver debajo de la tabla, alineado a la derecha -->
+  <div class="d-flex justify-content-end mt-3">
+    <a href="/home" class="btn btn-outline-secondary">
+      <i class="fas fa-arrow-left"></i> Volver al Inicio
+    </a>
+  </div>
+
 </div>
+
 
 <!-- Modal para nuevo producto -->
 <div class="modal fade" id="nuevoProductoModal" tabindex="-1" aria-labelledby="nuevoProductoLabel" aria-hidden="true">
